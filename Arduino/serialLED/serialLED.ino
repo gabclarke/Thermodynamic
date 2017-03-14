@@ -11,18 +11,16 @@ void loop() {
 //char inByte = ' ';
 //char data[] = "hello"; 
 //char data;
+int incoming = 0;
 String data = " ";
-//if(Serial.available()){ // only send data back if data has been sent
-//  char inByte = Serial.read(); // read the incoming data
-//  Serial.println(inByte); // send the data back in a new line so that it is not all one long line
-//}
 if (Serial.available()) {
   data = Serial.readString();
   Serial.println(data);
 }
-if (data){
+if (data == "1"){
   analogWrite(led, brightness);
-  delay(100);
+}
+if (data == "0"){
   analogWrite(led, 0);
 }
 delay(500); // delay for 1/10 of a second
