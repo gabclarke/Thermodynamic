@@ -7,6 +7,7 @@ from keys import DARK_SKY_KEY
 
 s = serial.Serial('/dev/cu.usbmodem1411', 9600)
 
+# PARAMETERS TO BE EDITED
 SanDiego = ["SanDiego",32.7157, 117.1611]
 checkFrequency = 10.0
 
