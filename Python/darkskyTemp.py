@@ -1,22 +1,31 @@
-from keys import DARK_SKY_KEY
-from forecastiopy import *
-import threading
+# Powered by Dark Sky, https://darksky.net/
 
+from threading import Timer
+import serial
+from forecastiopy import *
+from keys import DARK_SKY_KEY
+
+s = serial.Serial('/dev/cu.usbmodem1411', 9600)
 
 SanDiego = ["SanDiego",32.7157, 117.1611]
 checkFrequency = 10.0
 
-def checkTemperature(place, frequency):
-    """ Checks the temperature at a position with a given frequency, then writes
-        new value to a line of a text file.
+def sendTemperature(place, frequency):
+    """ Checks the temperature at a position with a given frequency, then sends
+        value to serial port.
 
+        Inputs:
+        place = [name, latitude, longitude] of a place (string, float, float)
+        frequency = frequency of function call
 
+        Output:
+        sends value to serial port specified
     """
-    threading.Timer(frequency, checkTemperature).start()
+    Timer(frequency, sendTemperature, args=[place,frequency]).start()
     temperature = getCurrentTemp(place)
-    filename = str(place[0]) + ".txt"
-    writeFile(filename, temperature)
-
+    temperature = str(temperature)
+    s.write(temperature.encode())
+    # print(temperature)
 
 def getCurrentTemp(place):
     """ Uses forecastiopy to get the current temperature at a position.
@@ -31,18 +40,7 @@ def getCurrentTemp(place):
     current = FIOCurrently.FIOCurrently(FIO)
     return current.temperature
 
-def writeFile(file, data):
-    """ Writes data to text file, with each entry on a new line.
-        Input:
-        data (type = float, converted to string)
-    """
-    f = open(file, 'a')
-    f.write(str(data)+"\n")
-    f.close
-
 def run():
-    # temperature = getCurrentTemp(SanDiego)
-    # writeFile(temperature)
-    checkTemperature(SanDiego, checkFrequency)
+    sendTemperature(SanDiego, checkFrequency)
 
 run()
