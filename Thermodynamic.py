@@ -6,8 +6,8 @@
 # https://github.com/gabyclarke/Thermodynamic
 
 # Powered by Dark Sky, https://darksky.net/poweredby/
-# Powered by mateodelnorte's forecast.io python wrapper,
-# https://github.com/mateodelnorte/forecast.io
+# Powered by forecast.io Python3 wrapper,
+# https://github.com/bitpixdigital/forecastiopy3
 
 from threading import Timer
 import serial
