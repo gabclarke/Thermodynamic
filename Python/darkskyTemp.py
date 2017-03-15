@@ -3,7 +3,11 @@
 
 # Gaby Clarke, Spring 2017
 # Parsons Paris, Art Media and Technology Core Spatial Studio
+# https://github.com/gabyclarke/Thermodynamic
+
 # Powered by Dark Sky, https://darksky.net/poweredby/
+# Powered by mateodelnorte's forecast.io python wrapper,
+# https://github.com/mateodelnorte/forecast.io
 
 from threading import Timer
 import serial

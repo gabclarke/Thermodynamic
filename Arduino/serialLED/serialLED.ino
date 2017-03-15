@@ -3,6 +3,8 @@
 
 // Gaby Clarke, Spring 2017
 // Parsons Paris, Art Media and Technology Core Spatial Studio
+// https://github.com/gabyclarke/Thermodynamic
+
 // Powered by Dark Sky, https://darksky.net/poweredby/
 
 int LED = 9; // the PWM pin the LED is attached to
