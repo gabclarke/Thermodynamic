@@ -1,4 +1,9 @@
-# Powered by Dark Sky, https://darksky.net/
+# THERMODYNAMIC
+# An installation art piece
+
+# Gaby Clarke, Spring 2017
+# Parsons Paris, Art Media and Technology Core Spatial Studio
+# Powered by Dark Sky, https://darksky.net/poweredby/
 
 from threading import Timer
 import serial
@@ -9,7 +14,7 @@ s = serial.Serial('/dev/cu.usbmodem1411', 9600)
 
 # PARAMETERS TO BE EDITED
 SanDiego = ["SanDiego",32.7157, 117.1611]
-checkFrequency = 10.0
+checkFrequency = 45.0
 
 def sendTemperature(place, frequency):
     """ Checks the temperature at a position with a given frequency, then sends
@@ -26,7 +31,6 @@ def sendTemperature(place, frequency):
     temperature = getCurrentTemp(place)
     temperature = str(temperature)
     s.write(temperature.encode())
-    # print(temperature)
 
 def getCurrentTemp(place):
     """ Uses forecastiopy to get the current temperature at a position.
