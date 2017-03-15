@@ -1,4 +1,5 @@
 keys.py
+__pycache__/
 
 # PROCESS IGNORES
 Process/Python/__pycache__/
