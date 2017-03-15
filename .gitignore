@@ -1,5 +1,7 @@
-Python/__pycache__/
-Python/forecastiopy3-master/
+keys.py
 
-Python/keys.py
-Python/keys.pyc
+# PROCESS IGNORES
+Process/Python/__pycache__/
+Process/Python/forecastiopy3-master/
+Process/Python/keys.py
+Process/Python/keys.pyc
