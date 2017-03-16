@@ -7,9 +7,8 @@
 
 // Powered by Dark Sky, https://darksky.net/poweredby/
 
-int LEDR = 9; // PWM pin
-int LEDG = 10;
-int LEDB = 11;
+int LED1 = 9; // PWM pin
+int LED2 = 10;
 float brightness; // LED brightness
 float locationBounds[] = {-25.0, 50.0}; // Record {low, high} temperatures for location
 
@@ -19,9 +18,8 @@ float SanDiego[] = {-4.0, 44.0}; // Record {low, high} temperatures in San Diego
 
 void setup() {
   Serial.begin(9600); // set the baud rate to 9600
-  pinMode(LEDR, OUTPUT);
-  pinMode(LEDG, OUTPUT);
-  pinMode(LEDB, OUTPUT);
+  pinMode(LED1, OUTPUT);
+  pinMode(LED2, OUTPUT);
   
   getLocationBounds(SanDiego); // select location here
 }
@@ -37,9 +35,8 @@ void loop() {
   }
 
   float brightness = map(value, locationBounds[0], locationBounds[1], 0.0, 255.0);
-  analogWrite(LEDR, brightness);
-  analogWrite(LEDG, brightness);
-  analogWrite(LEDB, brightness);
+  analogWrite(LED1, brightness);
+  analogWrite(LED2, brightness);
   
 //  delay(10);
 }
