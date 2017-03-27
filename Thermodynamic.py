@@ -18,7 +18,7 @@ s = serial.Serial('/dev/cu.usbmodem1411', 9600)
 
 # PARAMETERS TO BE EDITED
 SanDiego = ["SanDiego",32.7157, 117.1611]
-checkFrequency = 45.0
+checkFrequency = 15.0
 
 def sendTemperature(place, frequency):
     """ Checks the temperature at a position with a given frequency, then sends
